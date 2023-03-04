@@ -14,13 +14,22 @@
         android:theme="@style/Theme.App18"
         tools:targetApi="32">
         <activity
+            android:name=".Wallet"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateStudent"
+            android:exported="false" />
+        <activity
+            android:name=".Statistics"
+            android:exported="false" />
+        <activity
+            android:name=".Information"
+            android:exported="false" />
+        <activity
             android:name=".MainMenu"
             android:exported="false" />
         <activity
             android:name=".Registrations"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Authorizations"

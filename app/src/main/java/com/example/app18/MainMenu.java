@@ -3,6 +3,7 @@ package com.example.app18;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +14,8 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MainMenu extends AppCompatActivity {
-    Button pref, stud,all;
-    TextView txt;
+    Button in, st,up,wa,ex;
+    TextView wall, log;
     SharedPreferences mSettings;
     String APP_PREFERENCES = "setting";
     String APP_PREFERENCES_LOGIN = "LOGIN"; //
@@ -23,36 +24,52 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        AppDataBase db = AppDataBase.getDbInstance(getApplicationContext());
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        txt = findViewById(R.id.txtall);
-        pref = findViewById(R.id.delpref);
-        stud = findViewById(R.id.delstud);
-        all = findViewById(R.id.selectall);
-        all.setOnClickListener(new View.OnClickListener() {
+        AppDataBase db = AppDataBase.getDbInstance(getApplicationContext());
+        wall = findViewById(R.id.WalletINF);
+        log = findViewById(R.id.StudentINF);
+        in = findViewById(R.id.information);
+        st = findViewById(R.id.StaticStudent);
+        up = findViewById(R.id.UpdateStudent);
+        wa = findViewById(R.id.addWallet);
+        ex = findViewById(R.id.Exit);
+        int as = db.studentDao().getStudent(mSettings.getString(APP_PREFERENCES_LOGIN,"")).getWallet();
+        wall.append(as+"");
+        log.append(mSettings.getString(APP_PREFERENCES_LOGIN,""));
+        in.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String ars = mSettings.getString(APP_PREFERENCES_LOGIN,"")+" : "+mSettings.getString(APP_PREFERENCES_PASSWORD,"");
-                boolean ar = mSettings.getString(APP_PREFERENCES_LOGIN,"").isEmpty();
-                Toast.makeText(getApplicationContext(), ar + ":"+ ars,
-                        Toast.LENGTH_LONG).show();
-                List<Student> st = db.studentDao().getAllStudent();
-                for(int i = 0;i<db.studentDao().getAllStudent().size();i++){
-                    txt.append(st.get(i).getId_st()+" : "+st.get(i).getLogin()+" : "+st.get(i).getPassword()+"\n");
-                }
-
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, Information.class);
+                startActivity(i);
             }
         });
-        pref.setOnClickListener(new View.OnClickListener() {
+        st.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                mSettings.edit().putString(APP_PREFERENCES_LOGIN,null).putString(APP_PREFERENCES_PASSWORD,null).apply();
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, Statistics.class);
+                startActivity(i);
             }
         });
-        stud.setOnClickListener(new View.OnClickListener() {
+        up.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                db.studentDao().DeleteAllStudent();
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, UpdateStudent.class);
+                startActivity(i);
+            }
+        });
+        wa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, Wallet.class);
+                startActivity(i);
+            }
+        });
+        ex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSettings.edit().putString(APP_PREFERENCES_LOGIN,"").putString(APP_PREFERENCES_PASSWORD,"").apply();
+                Intent i = new Intent(MainMenu.this, Authorizations.class);
+                startActivity(i);
             }
         });
     }

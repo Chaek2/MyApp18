@@ -13,10 +13,13 @@ public class Student {
     private String login;
     @ColumnInfo(name = "student_password")
     private String password;
+    @ColumnInfo(name = "student_wallet")
+    private int wallet;
 
-    public Student(String login, String password) {
+    public Student(String login, String password, int wallet) {
         this.login = login;
         this.password = password;
+        this.wallet = wallet;
     }
 
     public int getId_st() {
@@ -41,5 +44,13 @@ public class Student {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(int wallet) {
+        this.wallet = wallet;
     }
 }
