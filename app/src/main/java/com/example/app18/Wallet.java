@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Switch;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
@@ -28,18 +29,19 @@ public class Wallet extends AppCompatActivity {
         loadPie();
     }
 
-    void loadPie(){
+    ArrayList<PieEntry> loadProc(){
         ArrayList<PieEntry> entries = new ArrayList<>();
         entries.add(new PieEntry(0.5f,"Cash"));
         entries.add(new PieEntry(0.06f,"Transfers"));
         entries.add(new PieEntry(0.3f,"Organizations"));
         entries.add(new PieEntry(0.14f,"Investments"));
+        return entries;
+    }
+
+    void loadPie(){
+        ArrayList<PieEntry> entries = loadProc();
 
         ArrayList<Integer> colors = new ArrayList<>();
-        //colors.add(R.color.Cash);
-        //colors.add(R.color.Transfers);
-        //colors.add(R.color.Organizations);
-        //colors.add(R.color.Investments);
         for(int color: ColorTemplate.MATERIAL_COLORS){
             colors.add(color);
         }
@@ -58,6 +60,8 @@ public class Wallet extends AppCompatActivity {
 
         pieChart.setData(data);
         pieChart.invalidate();
+
+        pieChart.animateXY(3000,3000, Easing.EaseInCubic);
     }
 
     void  setupchar(){
