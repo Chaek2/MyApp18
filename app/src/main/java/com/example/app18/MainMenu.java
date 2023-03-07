@@ -40,6 +40,7 @@ public class MainMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainMenu.this, Information.class);
                 startActivity(i);
+                finish();
             }
         });
         up.setOnClickListener(new View.OnClickListener() {

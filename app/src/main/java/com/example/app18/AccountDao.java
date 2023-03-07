@@ -18,5 +18,6 @@ public interface AccountDao {
     List<Account> getAccountStudentID(int student_id);
     @Query("Delete from account where student_id = :student_id")
     void DeleteAccount(int student_id);
-
+    @Query("DELETE FROM account where id_account > -1")
+    void DeleteAllAccount();
 }

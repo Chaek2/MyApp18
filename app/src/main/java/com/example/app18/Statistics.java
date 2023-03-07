@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Statistics extends AppCompatActivity {
     EditText log, pass;
-    Button reg;
+    Button reg,del;
     SharedPreferences mSettings;
     String APP_PREFERENCES = "setting";
     String APP_PREFERENCES_LOGIN = "LOGIN"; //
@@ -29,6 +29,7 @@ public class Statistics extends AppCompatActivity {
         log = findViewById(R.id.txtloginReg);
         pass = findViewById(R.id.txtpassReg);
         reg = findViewById(R.id.btnRegister);
+        del = findViewById(R.id.btnall);
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         log.setText(db.studentDao().getStudent(mSettings.getString(APP_PREFERENCES_LOGIN,"")).getLogin());
         pass.setText(db.studentDao().getStudent(mSettings.getString(APP_PREFERENCES_LOGIN,"")).getPassword());
@@ -58,6 +59,7 @@ public class Statistics extends AppCompatActivity {
                         editor.apply();
                         Intent ij = new Intent(Statistics.this, MainMenu.class);
                         startActivity(ij);
+                        finish();
                     }
                 }
                 else{
@@ -66,6 +68,19 @@ public class Statistics extends AppCompatActivity {
                 }
             }
         });
-
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = mSettings.edit();
+                editor.putString(APP_PREFERENCES_LOGIN,"");
+                editor.putString(APP_PREFERENCES_PASSWORD,"");
+                editor.apply();
+                db.accountDao().DeleteAllAccount();
+                db.studentDao().DeleteAllStudent();
+                Intent ij = new Intent(Statistics.this, Authorizations.class);
+                startActivity(ij);
+                finish();
+            }
+        });
     }
 }

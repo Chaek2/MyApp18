@@ -53,6 +53,7 @@ public class Authorizations extends AppCompatActivity {
                     editor.apply();
                     Intent intent = new Intent(Authorizations.this, MainMenu.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

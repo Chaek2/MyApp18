@@ -47,6 +47,7 @@ public class Registrations extends AppCompatActivity {
                         db.studentDao().InsertStudent(student);
                         Intent ij = new Intent(Registrations.this, Authorizations.class);
                         startActivity(ij);
+                        finish();
                     }
                 }
                 else{

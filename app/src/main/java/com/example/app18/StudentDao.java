@@ -23,5 +23,5 @@ public interface StudentDao {
     @Query("Select * from student where student_login = :login and student_password = :password")
     Student AutoStudent(String login, String password);
     @Query("DELETE FROM student where id_student > -1")
-    public void DeleteAllStudent();
+    void DeleteAllStudent();
 }
