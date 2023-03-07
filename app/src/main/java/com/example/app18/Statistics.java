@@ -36,18 +36,22 @@ public class Statistics extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(log.getText().toString()==mSettings.getString(APP_PREFERENCES_LOGIN,"")){
 
+                }
                 String logi = log.getText().toString().replaceAll("\\s+","");
                 String passe = pass.getText().toString().replaceAll("\\s+","");
                 if(logi !="" && !logi.isEmpty() && passe !="" && !passe.isEmpty()){
                     int wall = db.studentDao().getStudent(mSettings.getString(APP_PREFERENCES_LOGIN,"")).getWallet();
                     boolean st =false;
-                    List<Student> students = db.studentDao().getAllStudent();
-                    for (int i = 0;i<students.size();i++){
-                        if(students.get(i).getLogin().equals(logi)){
-                            Toast.makeText(getApplicationContext(), "Такой логин уже есть",
-                                    Toast.LENGTH_LONG).show();
-                            st=true;
+                    if(log.getText().toString()==mSettings.getString(APP_PREFERENCES_LOGIN,"")){
+                        List<Student> students = db.studentDao().getAllStudent();
+                        for (int i = 0;i<students.size();i++){
+                            if(students.get(i).getLogin().equals(logi)){
+                                Toast.makeText(getApplicationContext(), "Такой логин уже есть",
+                                        Toast.LENGTH_LONG).show();
+                                st=true;
+                            }
                         }
                     }
                     if(!st){

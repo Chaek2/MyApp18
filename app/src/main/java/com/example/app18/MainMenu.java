@@ -40,7 +40,6 @@ public class MainMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainMenu.this, Information.class);
                 startActivity(i);
-                finish();
             }
         });
         up.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +47,7 @@ public class MainMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainMenu.this, Statistics.class);
                 startActivity(i);
+                finish();
             }
         });
         wa.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +63,7 @@ public class MainMenu extends AppCompatActivity {
                 mSettings.edit().putString(APP_PREFERENCES_LOGIN,"").putString(APP_PREFERENCES_PASSWORD,"").apply();
                 Intent i = new Intent(MainMenu.this, Authorizations.class);
                 startActivity(i);
+                finish();
             }
         });
     }
