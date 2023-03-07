@@ -12,9 +12,9 @@ public class Account {
     @ColumnInfo(name = "student_id")
     private int student_id;
     @ColumnInfo(name = "account_replenishment")
-    private boolean replenishment; //true - пополнение \ false - снятие
+    private boolean replenishment; //true - пополнение \ false - расходы
     @ColumnInfo(name = "account_category")
-    private int category; // Наличные, Переводы, Организации, Инвестиции
+    private int category; //0-Наличные,1-Переводы,2-Организации,3-Инвестиции
     @ColumnInfo(name = "account_money")
     private int money;
 

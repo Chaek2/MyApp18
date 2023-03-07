@@ -68,14 +68,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="UpdateStudent" />
+            android:text="Изменить информацию" />
 
         <Button
-            android:id="@+id/StaticStudent"
+            android:id="@+id/UPWallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="StaticStudent" />
+            android:text="Управление деньгами" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,14 +92,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="addWallet" />
+            android:text="Статистика" />
 
         <Button
             android:id="@+id/Exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Exit" />
+            android:text="Выход" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

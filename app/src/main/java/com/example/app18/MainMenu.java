@@ -29,7 +29,7 @@ public class MainMenu extends AppCompatActivity {
         wall = findViewById(R.id.WalletINF);
         log = findViewById(R.id.StudentINF);
         in = findViewById(R.id.information);
-        st = findViewById(R.id.StaticStudent);
+        st = findViewById(R.id.UPWallet);
         up = findViewById(R.id.UpdateStudent);
         wa = findViewById(R.id.addWallet);
         ex = findViewById(R.id.Exit);

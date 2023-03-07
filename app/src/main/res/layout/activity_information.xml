@@ -7,17 +7,81 @@
     tools:context=".Information">
 
     <TextView
-        android:id="@+id/INF"
+        android:id="@+id/CountWallet"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:text="Баланс: "
         android:textAlignment="center"
         android:textSize="33dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <Switch
+        android:id="@+id/swBalance"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:text="Cнятие / Пополнение"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CountWallet" />
+
+    <RadioGroup
+        android:id="@+id/RG"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="64dp"
+        android:orientation="vertical"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swBalance">
+
+        <RadioButton
+            android:id="@+id/rb0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Наличные      " />
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Переводы      " />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Организации " />
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Инвестиции   " />
+    </RadioGroup>
+
+    <EditText
+        android:hint="Деньги сюда писать"
+        android:id="@+id/EDMoney"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RG" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,18 +89,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnWallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="STUD DELETE" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="PREF DELETE" />
+            android:text="Отработать" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
