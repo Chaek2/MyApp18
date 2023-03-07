@@ -19,7 +19,6 @@ import java.util.List;
 public class Registrations extends AppCompatActivity {
     EditText log, pass;
     Button reg;
-    TextView txtmain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +27,6 @@ public class Registrations extends AppCompatActivity {
         log = findViewById(R.id.txtloginReg);
         pass = findViewById(R.id.txtpassReg);
         reg = findViewById(R.id.btnRegister);
-        txtmain = findViewById(R.id.maintextReg);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

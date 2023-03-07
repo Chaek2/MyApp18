@@ -12,13 +12,11 @@ import java.util.List;
 public interface AccountDao {
     @Insert
     void InsertAccount(Account account);
-    @Update
-    void UpdateAccount(Account account);
-    @Delete
-    void DeleteAccount(Account account);
     @Query("Select * from account where account_replenishment = :replenishment and student_id = :student_id")
     List<Account>  getAccountReplenishment(boolean replenishment,int student_id);
     @Query("Select * from account  where student_id = :student_id")
     List<Account> getAccountStudentID(int student_id);
+    @Query("Delete from account where student_id = :student_id")
+    void DeleteAccount(int student_id);
 
 }

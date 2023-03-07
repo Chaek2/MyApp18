@@ -34,26 +34,6 @@
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
-        android:id="@+id/ll1"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/ll2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/information"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Information"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/ll2"
         android:layout_width="match_parent"
         android:layout_height="70dp"

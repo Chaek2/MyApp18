@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MainMenu extends AppCompatActivity {
-    Button in, st,up,wa,ex;
+    Button st,up,wa,ex;
     TextView wall, log;
     SharedPreferences mSettings;
     String APP_PREFERENCES = "setting";
@@ -28,7 +28,6 @@ public class MainMenu extends AppCompatActivity {
         AppDataBase db = AppDataBase.getDbInstance(getApplicationContext());
         wall = findViewById(R.id.WalletINF);
         log = findViewById(R.id.StudentINF);
-        in = findViewById(R.id.information);
         st = findViewById(R.id.UPWallet);
         up = findViewById(R.id.UpdateStudent);
         wa = findViewById(R.id.addWallet);
@@ -36,24 +35,17 @@ public class MainMenu extends AppCompatActivity {
         int as = db.studentDao().getStudent(mSettings.getString(APP_PREFERENCES_LOGIN,"")).getWallet();
         wall.append(as+"");
         log.append(mSettings.getString(APP_PREFERENCES_LOGIN,""));
-        in.setOnClickListener(new View.OnClickListener() {
+        st.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainMenu.this, Information.class);
                 startActivity(i);
             }
         });
-        st.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Statistics.class);
-                startActivity(i);
-            }
-        });
         up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, UpdateStudent.class);
+                Intent i = new Intent(MainMenu.this, Statistics.class);
                 startActivity(i);
             }
         });
