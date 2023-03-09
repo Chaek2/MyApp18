@@ -56,7 +56,7 @@ public class Information extends AppCompatActivity {
                             int moneyD = db.studentDao().getStudent(mSettings.getString(APP_PREFERENCES_LOGIN,"")).getWallet();
                             if (money > 0) {
                                 if(sw.isChecked()) AddAccount(money);
-                                if(!sw.isChecked()&&moneyD>money) AddAccount(money);
+                                if(!sw.isChecked()&&moneyD>=money) AddAccount(money);
                             }
                         }
                     }
